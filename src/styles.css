@@ -1,0 +1,64 @@
+/* styles.css */
+
+.box {
+    margin-bottom: 20px;
+}
+
+.inputBox {
+    position: relative;
+}
+
+.summary {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+}
+
+.step {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+.step.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.tbx_stepper {
+    width: 50px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Box</title>
+    <script src="./dist/dropdownbox.js"></script>
+    <style>
+        .dropdownbox {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DropdownBox</h1>
+    <div class="dropdownbox"></div>
+
+    <script>
+        new DropdownBox.default('.dropdownbox', {
+            options: [
+                {
+                    id: 'adults',
+                    label: 'Adulto(s)',
+                    value: 1,
+                    min: 1,
+                    max: null
+                },
+                {
+                    id: 'children',
+                    label: 'Criança(s)',
+                    value: 0,
+                    min: 0,
+                    max: null
+                }
+            ],
+            onChange: function (e) {
+                console.log(e);
+            },
+            onDropdownToggle: function (e) {
+                console.log(e);
+            }, // Callback for dropdown toggle
+            className: 'my-custom-class-name',
+        });
+    </script>
+
+</body>
+
+</html>

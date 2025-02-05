@@ -1,0 +1,29 @@
+{
+  "name": "@zedomel/step-dropdown",
+  "version": "1.0.0",
+  "description": "A dropdown with multiple step inputs",
+  "main": "./dist/dropdownbox.js",
+  "module": "./src/index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "prepublishOnly": "webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dropdown"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "Jose A. Salim",
+  "license": "GPL-3.0-or-later ",
+  "devDependencies": {
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
