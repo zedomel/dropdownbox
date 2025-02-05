@@ -4,6 +4,9 @@
   "description": "A dropdown with multiple step inputs",
   "main": "./dist/dropdownbox.js",
   "module": "./src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "prepublishOnly": "webpack --mode=production",
