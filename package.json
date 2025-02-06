@@ -1,6 +1,6 @@
 {
   "name": "@zedomel/step-dropdown",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A dropdown with multiple step inputs",
   "main": "./dist/dropdownbox.js",
   "module": "./src/index.js",

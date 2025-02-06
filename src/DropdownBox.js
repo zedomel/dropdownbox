@@ -76,45 +76,45 @@ export default class DropdownBox {
       const fragment = document.createDocumentFragment();
   
       for (const option of this.options.options) {
-        const optionBox = this.createOption(option.id, option.label, option.description, option.value, option.min, option.max);
+        const optionBox = this.createOption(option);
         fragment.appendChild(optionBox);  
       }          
   
       return fragment;
     }
       
-    createOption(id, label, description, value, min, max) {
-      const option = document.createElement('div');
-      option.className = 'option';
+    createOption(option) { //id, label, description, value, min, max) {
+      const optionEl = document.createElement('div');
+      optionEl.className = 'option';
   
       const col1 = document.createElement('div');
       col1.className = 'col1';
   
       const labelSpan = document.createElement('span');
       labelSpan.className = 'option-label';
-      labelSpan.textContent = label;
+      labelSpan.textContent = option.label;
       col1.appendChild(labelSpan);
   
-      if (description) {
+      if (option.description) {
         const descSpan = document.createElement('span');
-        precoSpan.className = 'option-desc';
-        precoSpan.textContent = descSpan;
+        descSpan.className = 'option-desc';
+        descSpan.textContent = option.description;
         col1.appendChild(descSpan);
       }
   
       const col2 = document.createElement('div');
       col2.className = 'col2';
   
-      const stepper = this.createStepper(id, value, min, max);
+      const stepper = this.createStepper(option.id, option.name, option.value, option.min, option.max);
       col2.appendChild(stepper);
   
-      option.appendChild(col1);
-      option.appendChild(col2);
+      optionEl.appendChild(col1);
+      optionEl.appendChild(col2);
   
-      return option;
+      return optionEl;
     }
   
-    createStepper(id, value, min, max) {
+    createStepper(id, name, value, min, max) {
       const stepper = document.createElement('div');
       stepper.className = 'stepper';
       stepper.setAttribute('data-min', min ?? null);
@@ -129,7 +129,9 @@ export default class DropdownBox {
       const input = document.createElement('input');
       input.type = 'text';
       input.className = `tbx_stepper input-${id}`;
-      input.value = value;
+      input.value = value ?? null;
+      input.name = name ?? null;
+      input.id = `input-${id}`;
       input.readOnly = true;
       stepper.appendChild(input);
   
