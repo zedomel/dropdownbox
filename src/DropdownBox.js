@@ -199,7 +199,7 @@ export default class DropdownBox {
   
     updateSummary() {        
       this.$summary.textContent = this.options.options.map((o) => {
-        let val = this.container.querySelector('.box .stepper .tbx_stepper.input-' + o.id).value;
+        let val = parseInt(this.container.querySelector('.box .stepper .tbx_stepper.input-' + o.id).value, 10);
         if (val > 0) {
             return `${val} ${o.label}`;
         }        
