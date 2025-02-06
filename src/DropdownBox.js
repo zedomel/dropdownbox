@@ -128,7 +128,7 @@ export default class DropdownBox {
   
       const input = document.createElement('input');
       input.type = 'text';
-      input.className = `tbx_stepper ${id}`;
+      input.className = `tbx_stepper input-${id}`;
       input.value = value;
       input.readOnly = true;
       stepper.appendChild(input);
@@ -199,7 +199,7 @@ export default class DropdownBox {
   
     updateSummary() {        
       this.$summary.textContent = this.options.options.map((o) => {
-        let val = this.container.querySelector('.box .stepper .tbx_stepper.' + o.id).value;
+        let val = this.container.querySelector('.box .stepper .tbx_stepper.input-' + o.id).value;
         if (val > 0) {
             return `${val} ${o.label}`;
         }        
