@@ -50,7 +50,7 @@ export default class DropdownBox {
   
     createBox(className, content) {
       const box = document.createElement('div');
-      box.className =  `box ${className}`;
+      box.className =  `dropdownbox box ${className}`;
           
       const inputBox = document.createElement('div');
       inputBox.className = 'inputBox';

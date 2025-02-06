@@ -1,14 +1,14 @@
 /* styles.css */
 
-.box {
+.dropdownbox.box {
     margin-bottom: 20px;
 }
 
-.inputBox {
+.dropdownbox .inputBox {
     position: relative;
 }
 
-.summary {
+.dropdownbox .summary {
     display: block;
     padding: 10px;
     border: 1px solid #ccc;
@@ -17,7 +17,7 @@
     border-radius: 4px;
 }
 
-.options {
+.dropdownbox .options {
     display: none;
     position: absolute;
     width: 100%;
@@ -29,19 +29,19 @@
     z-index: 1000;
 }
 
-.option {
+.dropdownbox .option {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.stepper {
+.dropdownbox .stepper {
     display: flex;
     align-items: center;
 }
 
-.step {
+.dropdownbox .step {
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid #ccc;
@@ -49,12 +49,12 @@
     border-radius: 4px;
 }
 
-.step.is-disabled {
+.dropdownbox .step.is-disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
 
-.tbx_stepper {
+.dropdownbox .tbx_stepper {
     width: 50px;
     text-align: center;
     margin: 0 5px;
