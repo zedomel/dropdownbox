@@ -203,7 +203,7 @@ export default class DropdownBox {
         if (val > 0) {
             return `${val} ${o.label}`;
         }        
-        return "";
-      }).join(", ");      
+        return false;
+      }).filter(o => o).join(", ");      
     }
   }
