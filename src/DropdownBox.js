@@ -92,13 +92,13 @@ export default class DropdownBox {
   
       const labelSpan = document.createElement('span');
       labelSpan.className = 'option-label';
-      labelSpan.innerHtml = option.label;
+      labelSpan.innerHTML = option.label;
       col1.appendChild(labelSpan);
   
       if (option.description) {
         const descSpan = document.createElement('span');
         descSpan.className = 'option-desc';
-        descSpan.innerHtml = option.description;
+        descSpan.innerHTML = option.description;
         col1.appendChild(descSpan);
       }
   
