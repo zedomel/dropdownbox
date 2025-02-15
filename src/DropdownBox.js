@@ -92,13 +92,13 @@ export default class DropdownBox {
   
       const labelSpan = document.createElement('span');
       labelSpan.className = 'option-label';
-      labelSpan.textContent = option.label;
+      labelSpan.innerHtml = option.label;
       col1.appendChild(labelSpan);
   
       if (option.description) {
         const descSpan = document.createElement('span');
         descSpan.className = 'option-desc';
-        descSpan.textContent = option.description;
+        descSpan.innerHtml = option.description;
         col1.appendChild(descSpan);
       }
   
@@ -168,11 +168,9 @@ export default class DropdownBox {
       });      
     }
   
-    updateStepper(input, change) {
-      console.log(input);      
+    updateStepper(input, change) {      
       const min = parseInt(input.parentElement.dataset.min, 10);
-      const max = parseInt(input.parentElement.dataset.max, 10);
-      console.log(min)
+      const max = parseInt(input.parentElement.dataset.max, 10);      
       let value = parseInt(input.value, 10);
   
       value += change;
