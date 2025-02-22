@@ -227,9 +227,10 @@ export default class DropdownBox {
   
     updateSummary() {        
       this.$summary.textContent = this.options.options.map((o) => {
-        let val = parseInt(this.container.querySelector('.box .stepper .tbx_stepper.input-' + o.id + ', .box .swtich .tbx_switch.input-' + o.id).value, 10);
+        let input = this.container.querySelector('.box .stepper .tbx_stepper.input-' + o.id + ', .box .switch .tbx_switch.input-' + o.id);
+        let val = parseInt(input.value, 10);
         if (val > 0) {
-            return `${val} ${o.label}`;
+            return  input.type === 'checkbox' ? o.label : `${val} ${o.label}`;
         }        
         return false;
       }).filter(o => o).join(", ");      
