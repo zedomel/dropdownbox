@@ -105,12 +105,12 @@ export default class DropdownBox {
       const col2 = document.createElement('div');
       col2.className = 'col2';
   
-      if (option.min <= 1 && option.max === 1) {
-        const stepper = this.createStepper(option.id, option.name, option.value, option.min, option.max);
-        col2.appendChild(stepper);
-      } else {
+      if (option.min <= 1 && option.max === 1) {        
         const switchEl = this.createSwitch(option.id, option.name, option.value);
         col2.appendChild(switchEl);
+      } else {
+        const stepper = this.createStepper(option.id, option.name, option.value, option.min, option.max);
+        col2.appendChild(stepper);        
       }
   
       optionEl.appendChild(col1);
@@ -157,7 +157,7 @@ export default class DropdownBox {
     switchEl.appendChild(label);
 
     const input = document.createElement('input');
-    input.type = 'checbox';
+    input.type = 'checkbox';
     input.className = `tbx_switch input-${id}`;
     input.value = value ?? null;
     input.name = name ?? null;
@@ -227,7 +227,7 @@ export default class DropdownBox {
   
     updateSummary() {        
       this.$summary.textContent = this.options.options.map((o) => {
-        let val = parseInt(this.container.querySelector('.box .stepper .tbx_stepper.input-' + o.id).value, 10);
+        let val = parseInt(this.container.querySelector('.box .stepper .tbx_stepper.input-' + o.id + ', .box .swtich .tbx_switch.input-' + o.id).value, 10);
         if (val > 0) {
             return `${val} ${o.label}`;
         }        
