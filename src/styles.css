@@ -4,18 +4,52 @@
     margin-bottom: 20px;
 }
 
+.dropdownbox.box * {
+    position: relative;
+}
+
 .dropdownbox .inputBox {
     position: relative;
+    display: block;
+    width: 100%;
+    border: 2px solid #eee;
+    border-radius: 2px;
+    height: 46px;
+    text-align: left;
 }
 
 .dropdownbox .summary {
     display: block;
-    padding: 10px;
     border: 1px solid #ccc;
     cursor: pointer;
     background-color: #f9f9f9;
     border-radius: 4px;
+    color: #323945;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 44px;
+    padding: 0 4%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
 }
+
+.dropdownbox .summary::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #323945;
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 0;
+    bottom: 0;
+}
+
+
 
 .dropdownbox .options {
     display: none;
@@ -25,8 +59,17 @@
     background-color: #fff;
     border-radius: 4px;
     margin-top: 5px;
-    padding: 10px;
     z-index: 1000;
+    top: 100%;
+    left: 0;
+    height: auto;
+    background: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    color: #323945;
+    text-align: left;
+    padding: 10px 0;
+    margin: 0;
 }
 
 .dropdownbox .option {
@@ -34,19 +77,96 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    position: relative;
+    width: 90%;
+    font-size: 0;
+    clear: both;
+    padding: 5px 0;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.dropdownbox .stepper {
-    display: flex;
+.dropdownbox .option .col1 {
+    overflow: hidden;
+    float: left;
+    width: 51%;
+}
+
+.dropdownbox .option .option-label {
+    display: block;
+    color: #323945;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 140%;
+    text-align: left;
+    padding-top: 2px;
+}
+
+.dropdownbox .option .option-desc {
+    display: block;
+    color: #323945;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 140%;
+    text-align: left;
+    padding-top: 2px;
+}
+
+.dropdownbox .option .col2 {
+    width: 49%;
+    float: right;
+    text-align: right;
+}
+
+
+
+.dropdownbox .option .stepper {
     align-items: center;
+    display: block;
+    width: 100%;
+    position: relative;
 }
 
 .dropdownbox .step {
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 38px;
+    height: 38px;
+    background: #f6f6f6;
+    border-radius: 20px;
+    transition: background 100msease;
+}
+
+.dropdownbox .step::before {
+    content: "";
+    width: 10px;
+    height: 2px;
+    background: #b1b4b7;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.dropdownbox .step.up::after {
+    content: "";
+    width: 2px;
+    height: 10px;
+    background: #b1b4b7;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
 }
 
 .dropdownbox .step.is-disabled {
@@ -55,20 +175,31 @@
 }
 
 .dropdownbox .tbx_stepper {
-    width: 50px;
-    text-align: center;
     margin: 0 5px;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 5px;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+    width: 38px;
+    padding: 0;
+    text-align: center;
+    font-weight: 100;
+}
+
+.dropdownbox .option input {
+    height: 46px;
+    line-height: 44px;
+    background: #FFF;
+    border: 0;
+    color: #323945;
 }
 
 /* Basic styles for the switch container */
 .dropdownbox .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 50px;
+    height: 29px;
 }
 
 /* Hide the default checkbox */
@@ -95,8 +226,8 @@
 .dropdownbox .switch .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 22px;
+    width: 22px;
     left: 4px;
     bottom: 4px;
     background-color: white;
@@ -111,5 +242,5 @@
 
 /* Move the slider circle to the right when checked */
 .dropdownbox .switch input:checked+.slider:before {
-    transform: translateX(26px);
+    transform: translateX(22px);
 }
