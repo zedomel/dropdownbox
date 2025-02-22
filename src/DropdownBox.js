@@ -105,8 +105,13 @@ export default class DropdownBox {
       const col2 = document.createElement('div');
       col2.className = 'col2';
   
-      const stepper = this.createStepper(option.id, option.name, option.value, option.min, option.max);
-      col2.appendChild(stepper);
+      if (min <= 1 && max === 1) {
+        const stepper = this.createStepper(option.id, option.name, option.value, option.min, option.max);
+        col2.appendChild(stepper);
+      } else {
+        const switchEl = this.createSwitch(option.id, option.name, option.value);
+        col2.appendChild(switchEl);
+      }
   
       optionEl.appendChild(col1);
       optionEl.appendChild(col2);
@@ -141,6 +146,29 @@ export default class DropdownBox {
       stepper.appendChild(stepUp);
   
       return stepper;
+    }
+
+    createSwitch(id, name, value) {    
+    const switchEl = document.createElement('div');
+    switchEl.className = 'switch';    
+    
+    const label = document.createElement('label');
+    label.className = 'switch';
+    switchEl.appendChild(label);
+
+    const input = document.createElement('input');
+    input.type = 'checbox';
+    input.className = `tbx_switch input-${id}`;
+    input.value = value ?? null;
+    input.name = name ?? null;
+    input.id = `input-${id}`;    
+    label.appendChild(input);
+
+    const span = document.createElement('span');
+    span.className = 'slider';
+    label.appendChild(span);
+
+    return switchEl;
     }
   
     bindEvents() {
