@@ -105,7 +105,7 @@ export default class DropdownBox {
       const col2 = document.createElement('div');
       col2.className = 'col2';
   
-      if (min <= 1 && max === 1) {
+      if (option.min <= 1 && option.max === 1) {
         const stepper = this.createStepper(option.id, option.name, option.value, option.min, option.max);
         col2.appendChild(stepper);
       } else {
