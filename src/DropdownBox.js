@@ -195,6 +195,11 @@ export default class DropdownBox {
         $down.addEventListener('click', () => this.updateStepper($input, -1));
         $up.addEventListener('click', () => this.updateStepper($input, 1));
       });      
+
+      this.container.querySelectorAll('.switch').forEach((switchEl) => {
+        const $input = switchEl.querySelector('.tbx_switch');
+        $input.addEventListener('change', () => this.updateSwitch($input));
+      });
     }
   
     updateStepper(input, change) {      
@@ -220,6 +225,14 @@ export default class DropdownBox {
       // Update summary
       this.updateSummary();
   
+      // Trigger value change callback
+      if (this.options.onChange) {
+        this.options.onChange(input, value);
+      }
+    }
+
+    updateSwitch(input) {
+      this.updateSummary();
       // Trigger value change callback
       if (this.options.onChange) {
         this.options.onChange(input, value);
