@@ -229,8 +229,12 @@ export default class DropdownBox {
       this.$summary.textContent = this.options.options.map((o) => {
         let input = this.container.querySelector('.box .stepper .tbx_stepper.input-' + o.id + ', .box .switch .tbx_switch.input-' + o.id);
         let val = parseInt(input.value, 10);
+        if (input.type === 'checkbox') {
+          val = input.checked | 0;
+        }
+        
         if (val > 0) {
-            return  input.type === 'checkbox' ? (input.checked ? o.label : false) : `${val} ${o.label}`;
+            return  input.type === 'checkbox' ?  o.label : `${val} ${o.label}`;
         }        
         return false;
       }).filter(o => o).join(", ");      
