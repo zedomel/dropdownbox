@@ -235,7 +235,7 @@ export default class DropdownBox {
       this.updateSummary();
       // Trigger value change callback
       if (this.options.onChange) {
-        this.options.onChange(input, value);
+        this.options.onChange(input, input.value);
       }
     }
   
